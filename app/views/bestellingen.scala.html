@@ -8,7 +8,7 @@
                     <h2>{{b.verkoper}}: </h2>
                     <button class="btn btn-primary" ng-click="pickUp(b)">Pick up</button> <span style="font-size: 1.5em;">Totaal: {{b.totaal}}</span>
                     <div class="row">
-                        <div class="col-sm-2" ng-repeat="c in b.categorien">
+                        <div class="col-sm-4" ng-repeat="c in b.categorien">
                             <h3>{{c}}</h3>
                             <div ng-repeat="drank in b.dranken">
                                 <p ng-show="drank.categorie == c">{{drank.naam}} : {{drank.aantal}}</p>
@@ -22,7 +22,7 @@
                     <h2>{{b.verkoper}}: </h2>
                     <button class="btn btn-primary" ng-click="pickUp(b)">Pick up</button> <span style="font-size: 1.5em;">Totaal: {{b.totaal}}</span>
                     <div class="row">
-                        <div class="col-sm-2" ng-repeat="c in b.categorien">
+                        <div class="col-sm-4" ng-repeat="c in b.categorien">
                             <h3>{{c}}</h3>
                             <div ng-repeat="drank in b.dranken">
                                 <p ng-show="drank.categorie == c">{{drank.naam}} : {{drank.aantal}}</p>

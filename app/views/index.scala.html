@@ -1,0 +1,97 @@
+@(message: String)
+
+@main("Bestellen") {
+<div ng-controller="StartController" ng-init="init()">
+    <h2>Nieuwe Bestelling</h2>
+        <div ng-show="error != ''" class="alert alert-danger fade in" id="alert">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Error!</strong> {{error}}
+        </div>
+        <div ng-show="success != ''" class="alert alert-success fade in" id="success">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Gelukt!</strong> {{success}}
+        </div>
+        <form name="bestelForm">
+            <div>
+                <ul >
+                    <li ng-repeat="ober in obers"  class="horizontal" >
+                        <button type="button" ng-click="select(ober.display)" class="btn btn-default" ng-class="{active: selectedOber == ober.display}" style="margin-top: 10px;">{{ober.display}}</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="row" ng-repeat="drank in alcoholisch track by $index">
+                            <div class="col-sm-4">
+                                <label for="{{$index}}">{{drank.naam}}</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" id="{{$index}}" ng-change="calculate()" ng-model="drank.aantal"/>
+                            </div>
+                            <div class="col-sm-4">
+                                <button ng-click="increase(drank)">
+                                    <span class='glyphicon glyphicon-plus'></span>
+                                </button>
+
+                                <button ng-click="decrease(drank)">
+                                    <span class='glyphicon glyphicon-minus'></span>
+                                </button>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="row" ng-repeat="drank in frisdrank track by $index">
+
+                            <div class="col-sm-4">
+                                <label for="{{$index}}">{{drank.naam}}</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" id="{{$index}}" ng-change="calculate()" ng-model="drank.aantal"/>
+                            </div>
+                            <div class="col-sm-4">
+                                <button ng-click="increase(drank)">
+                                    <span class='glyphicon glyphicon-plus'></span>
+                                </button>
+
+                                <button ng-click="decrease(drank)">
+                                    <span class='glyphicon glyphicon-minus'></span>
+                                </button>
+                            </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="row" ng-repeat="drank in keuken track by $index">
+
+                        <div class="col-sm-4">
+                            <label for="{{$index}}">{{drank.naam}}</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" id="{{$index}}" ng-change="calculate()" ng-model="drank.aantal"/>
+                        </div>
+                        <div class="col-sm-4">
+                            <button ng-click="increase(drank)">
+                                <span class='glyphicon glyphicon-plus'></span>
+                            </button>
+
+                            <button ng-click="decrease(drank)">
+                                <span class='glyphicon glyphicon-minus'></span>
+                            </button>
+                        </div>
+
+                </div>
+                </div>
+            </div>
+
+            <div class="row top-buffer">
+                <label for="totaal">Totaal</label>
+                <input type="text" id="totaal" ng-model="totaal">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-warning" ng-click="reset()">Reset</button>
+                    <button type="submit" class="btn btn-primary" ng-disabled="bestelling.verkoper = ''" ng-click="submit()">Bestel</button>
+                </div>
+            </div>
+        </form>
+</div>
+
+}

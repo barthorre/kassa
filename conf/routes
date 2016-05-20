@@ -1,0 +1,22 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                   controllers.Application.index
+GET     /obers/all                          controllers.Application.obers
+GET     /dranken/all                        controllers.Application.dranken
+GET     /bestellingen                       controllers.Application.bestellingen
+GET     /bestellingen/:categorie            controllers.Application.categorie(categorie)
+
+POST    /mongo/bestelling                   controllers.MongoApplication.insert
+POST    /mongo/handled                      controllers.MongoApplication.markHandled
+GET     /mongo/bestellingen                 controllers.MongoApplication.watch
+GET     /mongo/bestellingen/all             controllers.MongoApplication.bestellingen
+GET     /mongo/bestellingen/all/:categorie  controllers.MongoApplication.categorie(categorie)
+GET     /mongo/bestellingen/:categorie      controllers.MongoApplication.watchCategorie(categorie)
+
+GET     /mongo/connect/:uuid                controllers.MongoApplication.connect(uuid)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

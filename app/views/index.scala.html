@@ -88,7 +88,7 @@
                 <input type="text" id="totaal" ng-model="totaal">
                 <div class="btn-group">
                     <button type="button" class="btn btn-warning" ng-click="reset()">Reset</button>
-                    <button type="submit" class="btn btn-primary" ng-disabled="bestelling.verkoper = ''" ng-click="submit()">Bestel</button>
+                    <button type="submit" class="btn btn-primary" ng-disabled="selectedOber == undefined" ng-click="submit()">Bestel</button>
                 </div>
             </div>
         </form>

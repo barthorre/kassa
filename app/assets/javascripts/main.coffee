@@ -176,6 +176,16 @@ CategorieController = ($scope, $http, $window) ->
       return
     return
 
+  $scope.isLast = (bool, position) ->
+    evenLength = $scope.bestellingenEven.length
+    oddLength = $scope.bestellingenOdd.length
+    if position == "even" && bool && evenLength > oddLength
+      return true
+    if position == "odd" && bool && oddLength >= evenLength
+      return true
+    return false
+
+
   createUpdatesWS = (categorie) ->
     ws = new WebSocket("ws://#{location.host}/mongo/connect/" + categorie)
     ws.onopen = () ->

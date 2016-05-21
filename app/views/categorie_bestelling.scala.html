@@ -5,15 +5,15 @@
     <h1 style="text-align: center">@categorie</h1>
     <div style="margin-top: 50px" class="row">
         <div class="col-md-6">
-            <div ng-repeat="b in bestellingenEven">
+            <div ng-repeat="b in bestellingenEven" class="box">
                 <h3 style="color: grey">Bestelling voor {{b.verkoper}}</h3>
-                <h2 style="margin-left: 25px;" ng-repeat="drank in b.dranken" ng-show="drank.categorie == '@categorie'">{{drank.naam}} : <span style="font-weight: bold">{{drank.aantal}}</span></h2>
+                <h1 style="margin-left: 25px;" ng-repeat="drank in b.dranken" ng-show="drank.categorie == '@categorie'">{{drank.naam}} : <span style="font-weight: bold">{{drank.aantal}}</span></h1>
             </div>
         </div>
         <div class="col-md-6">
-            <div ng-repeat="b in bestellingenOdd">
+            <div ng-repeat="b in bestellingenOdd" class="box">
                 <h3 style="color: grey">Bestelling voor {{b.verkoper}}</h3>
-                <h2 style="margin-left: 25px;" ng-repeat="drank in b.dranken" ng-show="drank.categorie == '@categorie'">{{drank.naam}} : <span style="font-weight: bold">{{drank.aantal}}</span></h2>
+                <h1 style="margin-left: 25px;" ng-repeat="drank in b.dranken" ng-show="drank.categorie == '@categorie'">{{drank.naam}} : <span style="font-weight: bold">{{drank.aantal}}</span></h1>
             </div>
         </div>
     </div>

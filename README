@@ -3,4 +3,12 @@ This is your new Play application
 
 This file will be packaged with your application, when using `activator dist`
 
-Opstarten met ./activator run -Dconfig.file=conf/kassa.conf 
+Opstarten met ./activator run -Dconfig.file=conf/kassa.conf
+
+Queries in mongodb voor achteraf
+
+use kassa
+db.bestellingen.aggregate([{$group: { _id:null,total : { $sum : "$totaal"}}}]) --> som van alle totalen van bestellingen
+db.bestellingen.aggregate([{$group: { _id: "$verkoper",total : { $sum : "$totaal"}}}]) --> som van alle totalen van bestelling per verkoper
+
+

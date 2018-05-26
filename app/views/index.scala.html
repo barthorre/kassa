@@ -3,14 +3,17 @@
 @main("Bestellen") {
 <div ng-controller="StartController" ng-init="init()">
     <h2>Nieuwe Bestelling</h2>
+    <div class="white-space">
         <div ng-show="error != ''" class="alert alert-danger fade in" id="alert">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <strong>Error!</strong> {{error}}
         </div>
+
         <div ng-show="success != ''" class="alert alert-success fade in" id="success">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <strong>Gelukt!</strong> {{success}}
         </div>
+    </div>
         <form name="bestelForm">
             <div>
                 <ul >
